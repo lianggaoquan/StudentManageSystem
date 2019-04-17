@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<constant name="struts.enable.DynamicMethodInvocation" value="true"/>
+    <constant name="struts.devMode" value="true" />
+ 	<package name="default" namespace="/" extends="struts-default">
+ 		
+ 		<!-- 首页(登录页面) -->
+ 		<action name="">
+ 			<result>login.jsp</result>
+ 		</action>
+
+        <action name="login" class="com.test.service.LoginAction" method="login">
+            <result name="success">
+                /login_success.jsp
+            </result>
+            
+            <result name="fail">
+            	/login_fail.jsp
+            </result>
+        </action>
+        
+        <action name="info_insert" class="com.test.service.InsertAction" method="insert">
+        	<result name="success">
+        		/info_insert_success.jsp
+        	</result>
+        </action>
+        
+        <action name="info_check_result">
+        	<result>/info_check_result.jsp</result>
+        </action>  
+        
+        <action name="info_delete_result">
+        	<result>/info_delete_result.jsp</result>
+        </action>
+        
+        <action name="info_update_result">
+        	<result>/info_update_result.jsp</result>
+        </action>
+    </package>
+    
+
+    <!-- Add packages here -->
+
+</struts>

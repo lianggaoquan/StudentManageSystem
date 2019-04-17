@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+        <!--配置使用的driver-->
+        <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+        <property name="connection.username">root</property>
+        <property name="connection.password">1234</property>
+        <property name="connection.url">jdbc:mysql://localhost:3306/hibernate?serverTimezone=GMT%2B8</property>
+        
+        <!--配置dialect方言，明确告诉 hibernate 连接的是哪种数据库 -->
+        <property name="dialect">org.hibernate.dialect.MySQL5InnoDBDialect</property>
+        
+        <property name="connection_pool_size">1</property>
+        
+        
+        <!-- Session 自动上下文管理-->
+        <property name="current_session_context_class">thread</property>
+        
+        <property name="show_sql">true</property>
+        
+        <!-- 连接池配置,加快了查询速度 -->
+        <property name="hibernate.connection.provider_class">org.hibernate.connection.C3P0ConnectionProvider</property>
+		<property name="c3p0.min_size">5</property> <!--在连接池中可用数据库连接的最小数目-->
+		<property name="c3p0.max_size">30</property> <!--在连接池中所有数据库连接的最大数目-->
+		<property name="c3p0.time_out">1800</property> <!--设定数据库连接的超时时间-->
+		<property name="c3p0.max_statement">50</property> <!--可以被缓存的PreparedStatement的最大数目-->
+        
+
+        
+        <!-- 使用注解 -->
+        <mapping class="com.test.model.Student"/>
+    </session-factory>
+
+
+</hibernate-configuration>
